@@ -1,12 +1,32 @@
-import { Link } from 'react-router-dom'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { Link, useNavigate } from 'react-router-dom'
+import auth from '../../firebase/firebase.config'
+import toast from '../../../node_modules/react-hot-toast/src/index'
 
 const SignInPage = () => {
+  const navigate = useNavigate()
   const handleSignIn = (e) => {
     e.preventDefault()
 
     const email = e.target.email.value
     const password = e.target.password.value
     console.log(email, password)
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(
+        (result) => console.log(result.user),
+        toast.success(`Welcome to Homes.com `),
+        navigate('/')
+      )
+      .catch(
+        (error) =>
+          toast.error(
+            error.message === 'Firebase: Error (auth/email-already-in-use).'
+              ? 'Email already in use. Try logging in instead.'
+              : 'Something went Worng'
+          ),
+        (error) => console.error(error.message)
+      )
   }
 
   return (

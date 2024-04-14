@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout'
 import SignUp from './pages/SignUpPage/SignUp'
 import Root from './Root'
 import SignInPage from './pages/SigninPage/SignInPage'
+import AuthProvider from './Provider/AuthProvider'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>
 )

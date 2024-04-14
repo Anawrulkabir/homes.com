@@ -6,14 +6,14 @@ import OpenHouses from '../components/Houses/OpenHouse/OpenHouses'
 import PriceDropHouses from '../components/Houses/PriceDropHouses'
 import SuggestedHouses from '../components/Houses/SuggestedHouses'
 
-import Nav from '../components/Navbar/Nav'
+// import Nav from '../components/Navbar/Nav'
 import Neighbors from '../components/Neighbors.jsx/Neighbors'
 import Slider from '../components/Slider/Slider'
 
 const MainLayout = () => {
   return (
     <div className="relative">
-      <Nav />
+      {/* <Nav /> */}
       <Slider />
       <div className="mx-4 lg:mx-32">
         <Feature />

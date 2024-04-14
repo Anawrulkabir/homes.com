@@ -3,11 +3,28 @@ import * as ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import MainLayout from './layouts/MainLayout'
+import SignUp from './pages/SignUpPage/SignUp'
+import Root from './Root'
+import SignInPage from './pages/SigninPage/SignInPage'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout />,
+    element: <Root />,
+    children: [
+      {
+        path: '/',
+        element: <MainLayout />,
+      },
+      {
+        path: '/signup',
+        element: <SignUp />,
+      },
+      {
+        path: '/signin',
+        element: <SignInPage />,
+      },
+    ],
   },
 ])
 
